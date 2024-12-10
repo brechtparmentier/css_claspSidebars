@@ -60,6 +60,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
@@ -72,6 +73,16 @@ h2 {
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: var(--shadow-light);
+}
+
+.button-icon img {
+  height: 20px;
+  width: auto;
+}
+
+.button-text {
+  white-space: nowrap;
+  /* Voorkomt dat de tekst afbreekt */
 }
 
 .button:hover {
