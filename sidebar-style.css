@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Nunito:wght@600&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  background-color: #fff8f0;
+  color: #333;
+}
+
+h1, h2 {
+  font-family: 'Nunito', sans-serif;
+  color: #6b4226;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 22px;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: #9c6b4a;
+  font-weight: bold;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #ff8c66, #ff7043);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background: linear-gradient(45deg, #ff7043, #ff5722);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #6b4226;
+  font-weight: bold;
+}
+
+select, input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff8f0;
+}
+
+select:focus, input[type="text"]:focus {
+  outline: none;
+  border-color: #ff7043;
+  box-shadow: 0 0 3px #ff7043;
+}
+
+#message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #ffefd5;
+  border: 1px solid #ffa726;
+  color: #6b4226;
+  border-radius: 5px;
+  display: none;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 12px;
+  color: #9c6b4a;
+}
