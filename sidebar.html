@@ -5,6 +5,18 @@
     <!-- Externe CSS voor de sidebar-opmaak -->
     <link rel="stylesheet" href="https://brechtparmentier.github.io/css_claspSidebars/sidebar-style.css?v=1.1">
     <style>
+      /* Versienummer rechtsboven */
+      #version {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 0.8em;
+        color: #666;
+      }
+      /* Zorg dat het body-element een relatieve positionering heeft */
+      body {
+        position: relative;
+      }
       /* Stijlen voor de knoppen en het meldingsgebied */
       .button-group {
         margin-bottom: 20px;
@@ -26,6 +38,9 @@
     </style>
   </head>
   <body>
+    <!-- Versienummer toevoegen -->
+    <div id="version">v1.0.0</div>
+    
     <div class="sidebar-container">
       <h1>Opmaak Dashboard</h1>
       <p>Gebruik onderstaande knoppen om opmaakgerelateerde functies uit te voeren.</p>
