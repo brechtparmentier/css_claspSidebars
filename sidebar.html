@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <!-- Externe CSS voor de sidebar-opmaak -->
+    <link rel="stylesheet" href="https://brechtparmentier.github.io/css_claspSidebars/sidebar-style.css?v=1.1">
+    <style>
+      /* Stijlen voor de knoppen en het meldingsgebied */
+      .button-group {
+        margin-bottom: 20px;
+      }
+      .button-description {
+        font-size: 0.9em;
+        margin-top: 4px;
+        margin-bottom: 12px;
+        color: #555;
+      }
+      #statusMessage {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        font-size: 0.9em;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar-container">
+      <h1>Opmaak Dashboard</h1>
+      <p>Gebruik onderstaande knoppen om opmaakgerelateerde functies uit te voeren.</p>
+
+      <!-- Dropdown voor leeftijden opslaan in setup!B2 -->
+      <div class="button-group">
+        <label for="dropdown">Kies een leeftijdsgroep:</label>
+        <select id="dropdown" onchange="saveDropdownValue()">
+          <option value="2,5">2,5 jaar</option>
+          <option value="3">3 jaar</option>
+          <option value="4">4 jaar</option>
+          <option value="5">5 jaar</option>
+          <option value="5/6">5/6 jaar</option>
+          <option value="7">7 jaar</option>
+          <option value="8">8 jaar</option>
+          <option value="9">9 jaar</option>
+          <option value="10">10 jaar</option>
+          <option value="11">11 jaar</option>
+        </select>
+        <p class="button-description">Selecteer een leeftijdsgroep om deze direct op te slaan in setup!B2.</p>
+      </div>
+
+      <!-- Knop voor algemene opmaakinstellingen -->
+      <div class="button-group">
+        <button class="themed-button" onclick="runApplyFormatting()">Apply Formatting</button>
+        <p class="button-description">Past algemene opmaak toe (bijv. kolominstellingen, rijhoogtes, etc.).</p>
+      </div>
+
+      <!-- Knop voor voorwaardelijke opmaak op basis van samengevoegde headercellen -->
+      <div class="button-group">
+        <button class="themed-button" onclick="runApplyConditionalFormattingForMergedHeaders()">Conditional Formatting</button>
+        <p class="button-description">Past voorwaardelijke opmaak toe op basis van samengevoegde headercellen.</p>
+      </div>
+
+      <!-- Knop om randen rond niet-lege cellen te zetten -->
+      <div class="button-group">
+        <button class="themed-button" onclick="runZetRanden()">Zet Randen</button>
+        <p class="button-description">Zet randen rond cellen die niet leeg zijn (ook als 0 of false).</p>
+      </div>
+
+      <!-- Gedefinieerd meldingsgebied -->
+      <div id="statusMessage">Status: Geen leeftijdsgroep geselecteerd.</div>
+    </div>
+
+    <script>
+      /**
+       * Update het statusbericht in de sidebar.
+       * @param {string} message - De nieuwe statusboodschap.
+       */
+      function updateStatus(message) {
+        document.getElementById("statusMessage").innerText = "Status: " + message;
+      }
+
+      /**
+       * Slaat de gekozen leeftijdsgroep op in setup!B2 via Google Apps Script.
+       */
+      function saveDropdownValue() {
+        var dropdown = document.getElementById("dropdown");
+        var selectedValue = dropdown.value;
+        var selectedText = dropdown.options[dropdown.selectedIndex].text;
+
+        google.script.run.withSuccessHandler(function(){
+          updateStatus("Leeftijdsgroep '" + selectedText + "' opgeslagen.");
+        }).saveToSheet(selectedValue);
+      }
+
+      /**
+       * Roept de Google Apps Script-functie aan om algemene opmaak toe te passen.
+       */
+      function runApplyFormatting() {
+        google.script.run.withSuccessHandler(function(){
+            updateStatus("Apply Formatting is uitgevoerd.");
+        }).runApplyFormatting();
+      }
+      
+      /**
+       * Roept de Google Apps Script-functie aan om voorwaardelijke opmaak toe te passen op samengevoegde headercellen.
+       */
+      function runApplyConditionalFormattingForMergedHeaders() {
+        google.script.run.withSuccessHandler(function(){
+            updateStatus("Conditional Formatting is toegepast.");
+        }).runApplyConditionalFormattingForMergedHeaders();
+      }
+
+      /**
+       * Roept de Google Apps Script-functie aan om randen rond niet-lege cellen te zetten.
+       */
+      function runZetRanden() {
+        google.script.run.withSuccessHandler(function(){
+          updateStatus("Zet Randen is uitgevoerd.");
+        }).runZetRanden();
+      }
+    </script>
+  </body>
+</html>
