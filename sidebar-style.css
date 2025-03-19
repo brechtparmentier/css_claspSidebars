@@ -259,3 +259,72 @@ footer {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
   }
 }
+
+
+/* Dialoogvenster Stijl */
+.dialog-container {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-light);
+  color: var(--color-secondary);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-light);
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+}
+
+.dialog-header {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.dialog-content {
+  margin-bottom: 20px;
+}
+
+.dialog-footer {
+  text-align: center;
+}
+
+.dialog-button {
+  background: linear-gradient(45deg, var(--color-btn-blue), var(--color-btn-blue-hover));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+  padding: 12px 20px;
+}
+
+.dialog-button:hover {
+  background: linear-gradient(45deg, var(--color-btn-blue-hover), var(--color-btn-blue));
+  box-shadow: var(--shadow-hover);
+  transform: scale(1.02);
+}
+
+/* Dark Mode voor Dialoogvensters */
+@media (prefers-color-scheme: dark) {
+  .dialog-container {
+    background-color: var(--color-bg-dark);
+    color: #f4f4f4;
+  }
+
+  .dialog-header {
+    color: var(--color-accent);
+  }
+
+  .dialog-button {
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+
+  .dialog-button:hover {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  }
+}
